@@ -5,7 +5,17 @@ import java.util.Random;
  */
 public class Stocker extends Employee {
 	
-	int selves = 0;
+	int shelves = 15;
+	
+	public Stocker () {
+		
+	}
+	
+	public Stocker (String name, int salary) {
+		this.name = name;
+		this.salary = salary;
+		
+	}
 	
 	/**
 	 * a method which randomly determines if the Stocker has finished stocking the selves
@@ -15,7 +25,7 @@ public class Stocker extends Employee {
 		Random rand = new Random();
 		Boolean Finished = rand.nextBoolean();
 		if(Finished == true) {
-			selves++;
+			shelves++;
 			return true;
 		}
 		else {
@@ -23,4 +33,15 @@ public class Stocker extends Employee {
 		}
 	}
 
+	public int StockShift () {
+		Stocker stocker = new Stocker();
+		while (stocker.StockShelf()) {
+		stocker.StockShelf();
+	}
+	int sum = stocker.shelves;
+	return sum;
 }
+		
+		
+		
+	}

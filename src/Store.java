@@ -4,15 +4,18 @@ public class Store {
 
 	ArrayList<Employee> employees = new ArrayList<Employee>();
 	Manager manager;
+	Stocker stocker;
 	
 	public static void main(String[] args) {
 		Store s = new Store();
 		s.PrintEmployees();
 		System.out.println();
+		System.out.println("Manager of the Store is: ");
 		s.PrintManager();
 		
 		//TODO: The manager doesn't know how to StockShelfs.
-		Manager.StockSelf();
+	System.out.println("Number of Shelves stocked today: ");
+	System.out.println(s.stocker.StockShift());
 		
 		/**
 		 * Challenge Concept: try/catch and throwing an exception
@@ -29,13 +32,19 @@ public class Store {
 		employees.add(new Employee("Tom"));
 		employees.add(new Employee("Jane", 40000));
 		
+		//name of the Stocker
+		this.stocker = new Stocker ("Bill", 45000);
+		employees.add(stocker);
+		
 		/*
 		 * This add statement will not work until the Manager class has been extended
 		 * However, I never set the manager correctly
 		 * 
 		 * TODO: assign the manager for the store class and add the manager to the employee list
 		 */
-		employees.add(new Manager("Tim", 50000, 5));
+		this.manager = new Manager("Tim", 50000, 8);
+		employees.add(manager);
+	
 		
 		//Notice that I can put a manager inside a list of employees because Manager is a subclass of Employee.
 	}
@@ -61,6 +70,7 @@ public class Store {
 		}
 		catch(Exception e) {
 			//do nothing
+			System.out.println("Number of employees is exceeded");
 		}
 	}
 
